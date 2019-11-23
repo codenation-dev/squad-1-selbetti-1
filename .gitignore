@@ -1,5 +1,4 @@
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
-
-/.vs/CentralErros/v16
+/.vs/CentralErros/v16/Server/sqlite3
