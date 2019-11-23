@@ -1,0 +1,13 @@
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\appsettings.Development.json
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\appsettings.json
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\CentralErros.exe
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\CentralErros.csprojAssemblyReference.cache
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\staticwebassets\CentralErros.StaticWebAssets.Manifest.cache
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\staticwebassets\CentralErros.StaticWebAssets.xml
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\CentralErros.AssemblyInfoInputs.cache
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\CentralErros.AssemblyInfo.cs
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\CentralErros.RazorTargetAssemblyInfo.cache
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\AutoMapper.dll
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\obj\Debug\netcoreapp3.0\CentralErros.csproj.CopyComplete
+C:\Repo\squad-1-selbetti-1\CentralErros\CentralErros\bin\Debug\netcoreapp3.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
