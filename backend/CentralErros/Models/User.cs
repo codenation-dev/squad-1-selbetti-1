@@ -13,6 +13,7 @@ namespace CentralErros.Models
 
         [Column("full_name")]
         [StringLength(100)]
+        [Required]
         public string FullName { get; set; }
 
         [Column("email")]
