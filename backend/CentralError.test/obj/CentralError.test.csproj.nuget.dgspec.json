@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Repo\\squad-1-selbetti-1\\CentralErros\\CentralErros\\CentralErros.csproj": {}
+    "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralError.test\\CentralError.test.csproj": {}
   },
   "projects": {
-    "C:\\Repo\\squad-1-selbetti-1\\CentralErros\\CentralErros\\CentralErros.csproj": {
+    "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralError.test\\CentralError.test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Repo\\squad-1-selbetti-1\\CentralErros\\CentralErros\\CentralErros.csproj",
-        "projectName": "CentralErros",
-        "projectPath": "C:\\Repo\\squad-1-selbetti-1\\CentralErros\\CentralErros\\CentralErros.csproj",
-        "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-        "outputPath": "C:\\Repo\\squad-1-selbetti-1\\CentralErros\\CentralErros\\obj\\",
+        "projectUniqueName": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralError.test\\CentralError.test.csproj",
+        "projectName": "CentralError.test",
+        "projectPath": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralError.test\\CentralError.test.csproj",
+        "packagesPath": "C:\\Users\\math1\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralError.test\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\math1\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,21 +41,21 @@
       "frameworks": {
         "netcoreapp3.0": {
           "dependencies": {
-            "AutoMapper": {
+            "MSTest.TestAdapter": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[1.4.0, )"
             },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+            "MSTest.TestFramework": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[1.4.0, )"
             },
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[3.0.1, )"
+              "version": "[16.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "coverlet.collector": {
               "target": "Package",
-              "version": "[3.0.1, )"
+              "version": "[1.0.1, )"
             }
           },
           "imports": [
@@ -66,9 +69,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
