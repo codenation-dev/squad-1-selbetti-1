@@ -6,7 +6,6 @@ namespace CentralErros.Models
 {
     public class CentralErrosContext : DbContext
     {
-
         public DbSet<User> Users { get; set; }
         public DbSet<Log> Logs { get; set; }
 
@@ -17,8 +16,7 @@ namespace CentralErros.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer(@"Server=DESKTOP-S7SANHG\SQLEXPRESS;Database=CentralErros;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer(@"Server=.;Database=CentralErros;Trusted_Connection=True");
         }
-
     }
 }
