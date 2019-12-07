@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace CentralErros.Services
 {
-    interface ILogService
+    public interface ILogService
     {
         Log Save(Log log);
 
         Log Get(int id);
 
-        List<Log> getAll();
+        List<Log> GetAll();
 
-        List<Log> findAllByUserId(int userId);
+        List<Log> FindAllByUserId(int userId);
+
+        IEnumerable<Log> OrderByLevel();
+
+        IEnumerable<Log> FindByLevel(string level);
+
+        IEnumerable<Log> FindByEnvironment(string environment);
+
+        IEnumerable<Log> FindByDescricao(string descricao);
+
+        IEnumerable<Log> FindByOrigem(string origem);
+
+        Log Delete(Log log);
+
+        Log Archive(Log log);
     }
 }

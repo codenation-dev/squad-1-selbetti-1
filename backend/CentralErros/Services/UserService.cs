@@ -1,4 +1,5 @@
 ﻿using CentralErros.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CentralErros.Services
 {
@@ -13,7 +14,10 @@ namespace CentralErros.Services
 
         public User Save(User user)
         {
-            throw new System.NotImplementedException();
+            var state = user.Id == 0 ? EntityState.Added : EntityState.Modified;
+            context.Entry(user).State = state;
+            context.SaveChanges();
+            return user;
         }
     }
 }

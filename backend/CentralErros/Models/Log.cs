@@ -32,12 +32,14 @@ namespace CentralErros.Models
         public string Origin { get; set; }
 
         [Column("created_at")]
-        [Required]
         public DateTime CreatedAt { get; set; }
 
         [Column("environment")]
         [Required]
         public string Environment { get; set; }
+
+        [Column("archived")]
+        public bool Archived { get; set; }
 
         [Column("user_id")]
         public int UserId { get; set; }
