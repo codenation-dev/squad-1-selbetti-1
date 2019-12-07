@@ -22,7 +22,7 @@ namespace CentralErros.Services
 
         IEnumerable<Log> FindByEnvironment(string environment);
 
-        IEnumerable<Log> findByDescricao(string descricao);
+        IEnumerable<Log> FindByDescricao(string descricao);
 
         IEnumerable<Log> FindByOrigem(string origem);
 

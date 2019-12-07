@@ -35,7 +35,7 @@ namespace CentralErros.Services
                 .ToList();
         }
 
-        public IEnumerable<Log> findByDescricao(string descricao)
+        public IEnumerable<Log> FindByDescricao(string descricao)
         {
             return GetAll().Where(el => el.Title.Equals(descricao))
                 .ToList();
@@ -67,7 +67,9 @@ namespace CentralErros.Services
 
         public Log Save(Log log)
         {
+            log.CreatedAt = DateTime.Now;
             var state = log.Id == 0 ? EntityState.Added : EntityState.Modified;
+            log.User = _context.Users.Where(el => el.Id == log.UserId).FirstOrDefault();
             _context.Entry(log).State = state;
             _context.SaveChanges();
             return log;
@@ -82,7 +84,7 @@ namespace CentralErros.Services
 
         public Log Archive(Log log)
         {
-            log.Archived = true;
+            log.Archived = log.Archived == false ? true : false;
             return Save(log);
         }
     }

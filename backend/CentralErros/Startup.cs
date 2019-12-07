@@ -15,14 +15,14 @@ namespace CentralErros
     {
         public IConfiguration Configuration { get; }
 
-        public StartupIdentityServer IdentityServerStartup { get; }
+       // public StartupIdentityServer IdentityServerStartup { get; }
 
-        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
+        public Startup(IConfiguration configuration/*, IWebHostEnvironment environment*/)
         {
             Configuration = configuration;
 
-            if (!environment.IsEnvironment("Testing"))
-                IdentityServerStartup = new StartupIdentityServer(environment);
+            /*if (!environment.IsEnvironment("Testing"))
+                IdentityServerStartup = new StartupIdentityServer(environment);*/
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -34,11 +34,11 @@ namespace CentralErros
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ILogService, LogService>();
-            services.AddScoped<IResourceOwnerPasswordValidator, PasswordValidatorService>();
-            services.AddScoped<IProfileService, UserProfileService>();
+            //services.AddScoped<IResourceOwnerPasswordValidator, PasswordValidatorService>();
+            //services.AddScoped<IProfileService, UserProfileService>();
 
-            if (IdentityServerStartup != null)
-                IdentityServerStartup.ConfigureServices(services);
+           /* if (IdentityServerStartup != null)
+                IdentityServerStartup.ConfigureServices(services);*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,10 +47,21 @@ namespace CentralErros
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            if (IdentityServerStartup != null)
-                IdentityServerStartup.Configure(app, env);
+            app.UseHttpsRedirection();
 
-            app.UseAuthentication();
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            /*if (IdentityServerStartup != null)
+                IdentityServerStartup.Configure(app, env);*/
+
+            //app.UseAuthentication();
             //app.UseMvcWithDefaultRoute();
         }
     }

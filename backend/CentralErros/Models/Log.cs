@@ -32,7 +32,6 @@ namespace CentralErros.Models
         public string Origin { get; set; }
 
         [Column("created_at")]
-        [Required]
         public DateTime CreatedAt { get; set; }
 
         [Column("environment")]

@@ -11,7 +11,6 @@ namespace CentralErros.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class LogController : ControllerBase
     {
         private ILogService service;
@@ -25,11 +24,28 @@ namespace CentralErros.Controllers
 
         // GET: api/Log
         [HttpGet]
-        public ActionResult<IEnumerable<LogDTO>> Get()
+        public ActionResult<IEnumerable<LogDTO>> Get(string level = null, string environment = null, string descricao = null, string origem = null)
         {
-            return Ok(service.GetAll()
-                .Select(x => mapper.Map<LogDTO>(x))
-                .ToList());
+            if (level != null)
+                return Ok(service.FindByLevel(level)
+                    .Select(x => mapper.Map<LogDTO>(x))
+                    .ToList());
+            else if (environment != null)
+                return Ok(service.FindByEnvironment(environment)
+                    .Select(x => mapper.Map<LogDTO>(x))
+                    .ToList());
+            else if (descricao != null)
+                return Ok(service.FindByDescricao(descricao)
+                    .Select(x => mapper.Map<LogDTO>(x))
+                    .ToList());
+            else if (origem != null)
+                return Ok(service.FindByOrigem(origem)
+                    .Select(x => mapper.Map<LogDTO>(x))
+                    .ToList());
+            else
+                return Ok(service.GetAll()
+                    .Select(x => mapper.Map<LogDTO>(x))
+                    .ToList());
         }
 
         // POST: api/Log
@@ -44,7 +60,7 @@ namespace CentralErros.Controllers
 
         // PUT: api/Log/5
         [HttpPut("{id}")]
-        public ActionResult<LogDTO> Put(int id, [FromBody] string value)
+        public ActionResult<LogDTO> Put(int id)
         {
             return Ok(mapper.Map<LogDTO>(service.Archive(service.Get(id))));
         }
