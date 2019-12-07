@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CentralErros.DTOs;
+using CentralErros.Models;
 using CentralErros.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -18,36 +20,14 @@ namespace CentralErros.Controllers
             this.mapper = mapper;
         }
 
-        // GET: api/User
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST: api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        public ActionResult<UserDTO> Post([FromBody] UserDTO value)
         {
-        }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-        // PUT: api/User/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            return Ok(mapper.Map<UserDTO>(service.Save(mapper.Map<User>(value))));
         }
     }
 }

@@ -12,8 +12,22 @@ namespace CentralErros.Services
 
         Log Get(int id);
 
-        List<Log> getAll();
+        List<Log> GetAll();
 
-        List<Log> findAllByUserId(int userId);
+        List<Log> FindAllByUserId(int userId);
+
+        IEnumerable<Log> OrderByLevel();
+
+        IEnumerable<Log> FindByLevel(string level);
+
+        IEnumerable<Log> FindByEnvironment(string environment);
+
+        IEnumerable<Log> findByDescricao(string descricao);
+
+        IEnumerable<Log> FindByOrigem(string origem);
+
+        Log Delete(Log log);
+
+        Log Archive(Log log);
     }
 }

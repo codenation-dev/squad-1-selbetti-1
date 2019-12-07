@@ -39,6 +39,9 @@ namespace CentralErros.Models
         [Required]
         public string Environment { get; set; }
 
+        [Column("archived")]
+        public bool Archived { get; set; }
+
         [Column("user_id")]
         public int UserId { get; set; }
 

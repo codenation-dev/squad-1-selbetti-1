@@ -11,13 +11,44 @@ namespace CentralErros.Services
     {
         private CentralErrosContext _context;
 
-        public LogService(CentralErrosContext context) {
+        public LogService(CentralErrosContext context)
+        {
             _context = context;
         }
 
-        public List<Log> findAllByUserId(int userId)
+        public List<Log> FindAllByUserId(int userId)
         {
             return _context.Users.Where(el => el.Id == userId).SelectMany(el => el.Logs).ToList();
+        }
+
+        public IEnumerable<Log> FindByLevel(string level)
+        {
+            return _context.Logs.Where(el => el.Level.Equals(level))
+                .ToList();
+        }
+
+        public IEnumerable<Log> FindByEnvironment(string environment)
+        {
+            return GetAll().Where(el => el.Environment.StartsWith(environment))
+                .ToList();
+        }
+
+        public IEnumerable<Log> findByDescricao(string descricao)
+        {
+            return GetAll().Where(el => el.Title.Equals(descricao))
+                .ToList();
+        }
+
+        public IEnumerable<Log> FindByOrigem(string origem)
+        {
+            return GetAll().Where(el => el.Origin.Contains(origem))
+                .ToList();
+        }
+
+        public IEnumerable<Log> OrderByLevel()
+        {
+            return GetAll()
+                .OrderBy(el => el.Level);
         }
 
         public Log Get(int id)
@@ -25,9 +56,10 @@ namespace CentralErros.Services
             return _context.Logs.Where(el => el.Id == id).FirstOrDefault();
         }
 
-        public List<Log> getAll()
+        public List<Log> GetAll()
         {
-            return _context.Logs.ToList();
+            return _context.Logs.Where(el => el.Archived == false)
+                .ToList();
         }
 
         public Log Save(Log log)
@@ -35,8 +67,20 @@ namespace CentralErros.Services
             var state = log.Id == 0 ? EntityState.Added : EntityState.Modified;
             _context.Entry(log).State = state;
             _context.SaveChanges();
-
             return log;
+        }
+
+        public Log Delete(Log log)
+        {
+            _context.Entry(log).State = EntityState.Deleted;
+            _context.SaveChanges();
+            return log;
+        }
+
+        public Log Archive(Log log)
+        {
+            log.Archived = true;
+            return Save(log);
         }
     }
 }
