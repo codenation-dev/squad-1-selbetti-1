@@ -18,7 +18,9 @@ namespace CentralErros.Services
 
         public List<Log> FindAllByUserId(int userId)
         {
-            return _context.Users.Where(el => el.Id == userId).SelectMany(el => el.Logs).ToList();
+            return _context.Users.Where(el => el.Id == userId)
+                .SelectMany(el => el.Logs)
+                .ToList();
         }
 
         public IEnumerable<Log> FindByLevel(string level)
@@ -53,7 +55,8 @@ namespace CentralErros.Services
 
         public Log Get(int id)
         {
-            return _context.Logs.Where(el => el.Id == id).FirstOrDefault();
+            return _context.Logs.Where(el => el.Id == id)
+                .FirstOrDefault();
         }
 
         public List<Log> GetAll()

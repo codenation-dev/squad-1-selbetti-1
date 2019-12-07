@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CentralErros.Services
 {
-    interface ILogService
+    public interface ILogService
     {
         Log Save(Log log);
 

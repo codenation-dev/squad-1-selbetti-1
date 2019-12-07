@@ -40,7 +40,7 @@ namespace CentralErros
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //app.UseStaticFiles();
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
         }
     }
 }
