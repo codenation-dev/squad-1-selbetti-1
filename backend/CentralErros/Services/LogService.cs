@@ -36,6 +36,7 @@ namespace CentralErros.Services
         }
 
         public IEnumerable<Log> FindByDescricao(string descricao)
+<<<<<<< HEAD
         {
             return GetAll().Where(el => el.Title.Equals(descricao))
                 .ToList();
@@ -49,6 +50,21 @@ namespace CentralErros.Services
 
         public IEnumerable<Log> OrderByLevel()
         {
+=======
+        {
+            return GetAll().Where(el => el.Title.Equals(descricao))
+                .ToList();
+        }
+
+        public IEnumerable<Log> FindByOrigem(string origem)
+        {
+            return GetAll().Where(el => el.Origin.Contains(origem))
+                .ToList();
+        }
+
+        public IEnumerable<Log> OrderByLevel()
+        {
+>>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
             return GetAll()
                 .OrderBy(el => el.Level);
         }
@@ -62,8 +78,12 @@ namespace CentralErros.Services
         public List<Log> GetAll()
         {
             return _context.Logs.Where(el => el.Archived == false)
+<<<<<<< HEAD
                     .ToList();
 
+=======
+                .ToList();
+>>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
         }
 
         public Log Save(Log log)
