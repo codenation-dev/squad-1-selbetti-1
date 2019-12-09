@@ -2,6 +2,7 @@
 using CentralErros.DTOs;
 using CentralErros.Models;
 using CentralErros.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -22,6 +23,7 @@ namespace CentralErros.Controllers
 
         // POST: api/User
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult<UserDTO> Post([FromBody] UserDTO value)
         {
             if (!ModelState.IsValid)
