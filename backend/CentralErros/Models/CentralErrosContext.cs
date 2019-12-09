@@ -16,7 +16,7 @@ namespace CentralErros.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-                optionsBuilder.UseSqlServer(@"Server=.;Database=CentralErros;Trusted_Connection=True");
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-HFRQTVE;Database=CentralErros;Trusted_Connection=True");
         }
     }
 }

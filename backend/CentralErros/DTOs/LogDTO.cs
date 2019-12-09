@@ -20,9 +20,9 @@ namespace CentralErros.DTOs
         public string Origin { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; }
+        public string Environment { get; set; }
 
         [Required]
-        public string Environment { get; set; }
+        public int UserId { get; set; }
     }
 }

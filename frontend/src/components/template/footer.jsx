@@ -5,7 +5,7 @@ import "./footer.css"
 
 export default function template() {
   return (
-    <div id="Footer">
+    <div id="Footer" className="text-muted">
         ©Codenation - Squad 1
     </div>
   );

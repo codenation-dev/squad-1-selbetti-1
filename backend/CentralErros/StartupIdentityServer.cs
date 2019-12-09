@@ -5,15 +5,16 @@ using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 
 namespace CentralErros
 {
     public class StartupIdentityServer
     {
-        public IHostingEnvironment Enviroment { get; set; }
+        public IWebHostEnvironment Enviroment { get; set; }
 
-        public StartupIdentityServer(IHostingEnvironment enviroment)
+        public StartupIdentityServer(IWebHostEnvironment enviroment)
         {
             Enviroment = enviroment;
         }
@@ -36,10 +37,10 @@ namespace CentralErros
             }
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             //app.UseStaticFiles();
-            app.UseIdentityServer();
+            //app.UseIdentityServer();
         }
     }
 }

@@ -23,6 +23,9 @@ export default class aside extends Component {
                 <a href="#/register" className="menu-item">
                     <i className={`fa fa-clipboard mr-2`}></i> Register
                 </a>
+                <a href="#/logs" className="menu-item">
+                    <i className={`fa fa-clipboard mr-2`}></i> Logs
+                </a>
             </Menu>
         );
     }
