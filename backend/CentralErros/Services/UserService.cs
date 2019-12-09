@@ -1,5 +1,6 @@
 ﻿using CentralErros.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace CentralErros.Services
 {
@@ -10,6 +11,18 @@ namespace CentralErros.Services
         public UserService(CentralErrosContext context)
         {
             this.context = context;
+        }
+
+        public User Get(int id)
+        {
+            return context.Users.Where(t => t.Id == id)
+                .FirstOrDefault();
+        }
+
+        public User GetByEmail(string email)
+        {
+            return context.Users.Where(t => t.Email.Equals(email))
+                .FirstOrDefault();
         }
 
         public User Save(User user)

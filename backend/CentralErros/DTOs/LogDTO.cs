@@ -22,6 +22,8 @@ namespace CentralErros.DTOs
         [Required]
         public string Environment { get; set; }
 
+        public bool Archived { get; set; }
+
         [Required]
         public int UserId { get; set; }
     }
