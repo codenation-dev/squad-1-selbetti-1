@@ -1,8 +1,6 @@
 using AutoMapper;
 using CentralErros.Models;
 using CentralErros.Services;
-using IdentityServer4.Services;
-using IdentityServer4.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -15,14 +13,9 @@ namespace CentralErros
     {
         public IConfiguration Configuration { get; }
 
-       // public StartupIdentityServer IdentityServerStartup { get; }
-
-        public Startup(IConfiguration configuration/*, IWebHostEnvironment environment*/)
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-
-            /*if (!environment.IsEnvironment("Testing"))
-                IdentityServerStartup = new StartupIdentityServer(environment);*/
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -34,11 +27,6 @@ namespace CentralErros
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ILogService, LogService>();
-            //services.AddScoped<IResourceOwnerPasswordValidator, PasswordValidatorService>();
-            //services.AddScoped<IProfileService, UserProfileService>();
-
-           /* if (IdentityServerStartup != null)
-                IdentityServerStartup.ConfigureServices(services);*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,12 +45,6 @@ namespace CentralErros
             {
                 endpoints.MapControllers();
             });
-
-            /*if (IdentityServerStartup != null)
-                IdentityServerStartup.Configure(app, env);*/
-
-            //app.UseAuthentication();
-            //app.UseMvcWithDefaultRoute();
         }
     }
 }
