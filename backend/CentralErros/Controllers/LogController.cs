@@ -11,6 +11,7 @@ namespace CentralErros.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize("Bearer")]
     public class LogController : ControllerBase
     {
         private ILogService service;
