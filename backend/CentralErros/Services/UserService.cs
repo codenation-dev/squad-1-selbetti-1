@@ -1,4 +1,5 @@
 ﻿using CentralErros.Models;
+using System.Collections.Generic;
 
 namespace CentralErros.Services
 {
@@ -14,6 +15,20 @@ namespace CentralErros.Services
         public User Save(User user)
         {
             throw new System.NotImplementedException();
+        }
+
+        public User GetByEmail(string email)
+        {
+            User user = new User();
+            return user;
+        }
+
+        public List<User> Listar()
+        {
+            List<User> lstUser = new List<User>();
+
+            return lstUser;
+        
         }
     }
 }

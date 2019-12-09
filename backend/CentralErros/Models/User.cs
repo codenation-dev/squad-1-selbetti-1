@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.Extensions.Primitives;
 
 namespace CentralErros.Models
 {
@@ -26,5 +28,10 @@ namespace CentralErros.Models
         public string Password { get; set; }
 
         public virtual ICollection<Log> Logs { get; set; }
+
+        public static implicit operator User(StringValues v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
