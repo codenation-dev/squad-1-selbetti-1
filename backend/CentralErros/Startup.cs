@@ -26,6 +26,18 @@ namespace CentralErros
         {
             services.AddTransient<UserService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Origins",
+                builder =>
+                {
+                    builder.AllowAnyOrigin()
+                                .AllowAnyHeader()
+                                .AllowAnyMethod();
+                });
+            });
+
+
             var signingConfigurations = new SigningConfigurations();
             services.AddSingleton(signingConfigurations);
 
@@ -84,6 +96,7 @@ namespace CentralErros
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
+            app.UseCors("Origins");
 
             app.UseEndpoints(endpoints =>
             {

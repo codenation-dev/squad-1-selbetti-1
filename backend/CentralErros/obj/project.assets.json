@@ -8087,11 +8087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralErros\\CentralErros.csproj",
+      "projectUniqueName": "C:\\Users\\math1\\Documents\\Frontend\\squad-1-selbetti-1\\backend\\CentralErros\\CentralErros.csproj",
       "projectName": "CentralErros",
-      "projectPath": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralErros\\CentralErros.csproj",
+      "projectPath": "C:\\Users\\math1\\Documents\\Frontend\\squad-1-selbetti-1\\backend\\CentralErros\\CentralErros.csproj",
       "packagesPath": "C:\\Users\\math1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\math1\\Documents\\squad-1-selbetti-1\\backend\\CentralErros\\obj\\",
+      "outputPath": "C:\\Users\\math1\\Documents\\Frontend\\squad-1-selbetti-1\\backend\\CentralErros\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
