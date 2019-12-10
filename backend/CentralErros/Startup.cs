@@ -1,44 +1,22 @@
 using AutoMapper;
 using CentralErros.Models;
 using CentralErros.Services;
-<<<<<<< HEAD
-using IdentityServer4.Services;
-using IdentityServer4.Validation;
-=======
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-<<<<<<< HEAD
-using Microsoft.Extensions.Hosting;
-=======
 using Microsoft.Extensions.Options;
 using System;
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
 
 namespace CentralErros
 {
     public class Startup
     {
-<<<<<<< HEAD
-        public IConfiguration Configuration { get; }
-
-       // public StartupIdentityServer IdentityServerStartup { get; }
-
-        public Startup(IConfiguration configuration/*, IWebHostEnvironment environment*/)
-        {
-            Configuration = configuration;
-
-            /*if (!environment.IsEnvironment("Testing"))
-                IdentityServerStartup = new StartupIdentityServer(environment);*/
-=======
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
         }
 
         public IConfiguration Configuration { get; }
@@ -46,8 +24,6 @@ namespace CentralErros
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-<<<<<<< HEAD
-=======
             services.AddTransient<UserService>();
 
             var signingConfigurations = new SigningConfigurations();
@@ -91,59 +67,28 @@ namespace CentralErros
                     .RequireAuthenticatedUser().Build());
             });
 
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
             services.AddMvcCore();
             services.AddDbContext<CentralErrosContext>();
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<ILogService, LogService>();
-<<<<<<< HEAD
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowMyOrigin",
-                builder =>
-                {
-                    builder.AllowAnyOrigin()
-                                        .AllowAnyHeader()
-                                        .AllowAnyMethod();
-                });
-            });
-
-            //services.AddScoped<IResourceOwnerPasswordValidator, PasswordValidatorService>();
-            //services.AddScoped<IProfileService, UserProfileService>();
-
-            /* if (IdentityServerStartup != null)
-                 IdentityServerStartup.ConfigureServices(services);*/
-=======
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
-            app.UseCors("AllowMyOrigin");
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            /*if (IdentityServerStartup != null)
-                IdentityServerStartup.Configure(app, env);*/
-
-            //app.UseAuthentication();
-            //app.UseMvcWithDefaultRoute();
         }
     }
 }

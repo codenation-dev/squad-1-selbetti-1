@@ -1,9 +1,6 @@
 ﻿using CentralErros.Models;
 using Microsoft.EntityFrameworkCore;
-<<<<<<< HEAD
-=======
 using System.Linq;
->>>>>>> bbc9b386731dca1d405fb56b77c278a6ed19ac5d
 
 namespace CentralErros.Services
 {

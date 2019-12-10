@@ -12,6 +12,9 @@ export default function home() {
               <h2 className="PageTitle">
                 Homepage
               </h2>
+              <p>
+                Central de Erros: Projeto Final
+              </p>
             </div>
     </Main>
   );

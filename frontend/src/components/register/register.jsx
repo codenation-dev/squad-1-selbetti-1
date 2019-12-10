@@ -4,8 +4,6 @@ import Alert from 'react-bootstrap/Alert'
 import Main from "../template/main"
 import api from "../../services/api"
 
-import axios from "axios"
-
 import "./register.css"
 
 export default class register extends Component {
@@ -33,7 +31,7 @@ export default class register extends Component {
             Password
         }
 
-        if(Password != ConfirmPassword)  {
+        if(Password !== ConfirmPassword)  {
             this.setState({
                 message: "The password doesn't match",
                 status: "error"
@@ -83,7 +81,7 @@ export default class register extends Component {
             <Alert variant={variant}>
                 <h5><strong>{this.state.messageTitle}</strong><br /></h5>
                 <hr/>
-                {this.state.message.length != 0 ? 
+                {this.state.message.length !== 0 ? 
                 this.state.message.map((err, index) => <p key={index}>{err}<br /></p> ) : ""}
             </Alert>
         )   

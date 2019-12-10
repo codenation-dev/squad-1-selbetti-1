@@ -13,13 +13,11 @@ namespace CentralErros.Models
 
         [Column("full_name")]
         [StringLength(100)]
-        [Required]
         public string FullName { get; set; }
 
         [Column("email")]
         [StringLength(100)]
         [Required]
-        [Index(IsUnique = true)]
         public string Email { get; set; }
 
         [Column("password")]

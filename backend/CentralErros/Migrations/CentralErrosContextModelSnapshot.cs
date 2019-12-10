@@ -90,7 +90,6 @@ namespace CentralErros.Migrations
                         .HasMaxLength(100);
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnName("full_name")
                         .HasColumnType("nvarchar(100)")
                         .HasMaxLength(100);

@@ -1,11 +1,10 @@
 import React from 'react';
 
 import "./header.css";
-// import { Container } from './styles';
 
 export default function template() {
   return (
-    <div id="Header">
+    <div id="Header" className="d-flex flex-row-reverse align-items-center">
     </div>
   );
 }
