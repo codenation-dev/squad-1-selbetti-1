@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -16,7 +17,7 @@ namespace CentralErros.Controllers
     {
         [AllowAnonymous]
         [HttpPost]
-        public object Post(
+        public ActionResult<Object> Post(
                [FromBody]User usuario,
                [FromServices]UserService userService,
                [FromServices]SigningConfigurations signingConfigurations,
@@ -57,22 +58,31 @@ namespace CentralErros.Controllers
                 });
                 var token = handler.WriteToken(securityToken);
 
-                return new
-                {
-                    authenticated = true,
-                    created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
-                    accessToken = token,
-                    message = "OK"
-                };
+                return Ok(
+                    new
+                    {
+                        authenticated = true,
+                        created = dataCriacao.ToString("yyyy-MM-dd HH:mm:ss"),
+                        expiration = dataExpiracao.ToString("yyyy-MM-dd HH:mm:ss"),
+                        accessToken = token,
+                        message = "OK"
+                    });
             }
             else
             {
-                return new
-                {
-                    authenticated = false,
-                    message = "Falha ao autenticar"
+                List<string> Auth = new List<string>() {
+                    "Email or Password is incorrect."
                 };
+
+                return Unauthorized(
+                    new
+                    {
+                        authenticated = false,
+                        title = "Authentication Failure",
+                        errors = new {
+                            Auth
+                        }
+                    });
             }
         }
     }
