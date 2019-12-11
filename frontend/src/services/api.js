@@ -3,10 +3,12 @@ import https from "https";
 
 const api = axios.create({
     baseURL: "https://localhost:44313/api",
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+    config: {
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+        },
     },
     httpsAgent: new https.Agent({  
         rejectUnauthorized: false

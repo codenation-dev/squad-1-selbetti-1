@@ -6,3 +6,15 @@
     border-radius: 6px;
     box-shadow: var(--shadow);
 }
+
+#LogsScreen div.options {
+    display: flex;
+    padding: 16px;
+    border: #eee solid 1px;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+}
+
+#LogsScreen div.options > button{
+    margin-left: 15px;
+}
