@@ -11,7 +11,9 @@ export default class logs extends Component {
 
     this.state = {
       Logs: [],
-      isChecked: false
+      isChecked: false,
+      Filter: "Selecione",
+      Search: ""
     }
   }
 
@@ -36,6 +38,8 @@ export default class logs extends Component {
     await this.setState({
       Logs: response.data
     })
+
+    console.log(response.data)
     
   }
 
@@ -64,6 +68,9 @@ export default class logs extends Component {
       await api.delete(`/log/${el}`, { headers })
     })
 
+    this.setState( {
+      Logs: []
+    } )
   }
 
   handleArchiveAll() {
@@ -76,6 +83,37 @@ export default class logs extends Component {
     Logs.map(async el =>  {
       await api.put(`/log/${el}`, {}, { headers })
     })
+
+    this.setState( {
+      Logs: []
+    } )
+
+  }
+
+  handleChange(e) {
+    this.setState( {[e.target.name]: e.target.value } )
+  }
+
+  async handleSearch(e) {
+    this.setState( {[e.target.name]: e.target.value } )
+
+    const headers = { Authorization: 'Bearer ' + localStorage.getItem("accessToken") }
+
+    let response = await api.get(`/log?${this.state.Filter}=${e.target.value}`,{ headers })
+      .catch(err => {
+        if(err.response.status === 401) {
+          alert("Seu token de autentificação expirou...");
+          localStorage.removeItem("accessToken");
+          window.location.reload();
+          return;
+        }
+      })
+
+      if(response === null) response = []
+
+      this.setState({
+        Logs: response.data
+      })
 
   }
 
@@ -91,11 +129,26 @@ export default class logs extends Component {
                 Logs
               </h2>
               <div className="options">
-                <div class="form-check">
-                  <input onChange={e => this.handleCheck(e)} type="checkbox" class="form-check-input" id="exampleCheck1" />
-                  <label class="form-check-label" for="exampleCheck1">Select All</label>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Filter by</label>
+                  <select value={this.state.Filter} name="Filter" onChange={e => this.handleChange(e)} class="form-control" id="exampleFormControlSelect1">
+                    <option disabled >Selecione</option>
+                    <option>Level</option>
+                    <option>Environment</option>
+                    <option>Origin</option>
+                    <option>Description</option>
+                  </select>
                 </div>
-                <button type="button" class="btn btn-success">Archive</button>
+                  <div class="ml-3 form-group">
+                    <label for="exampleInputEmail1">Search</label>
+                    <input onChange={e => this.handleSearch(e)} type="text" name="Search" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type to search..."/>
+                  </div>
+              </div>
+              <div className="options">
+                <div class="form-check d-flex align-items-center">
+                  <input onChange={e => this.handleCheck(e)} type="checkbox" class="form-check-input" id="exampleCheck1" />
+                </div>
+                <button onClick={e => this.handleArchiveAll(e)}type="button" class="btn btn-success">Archive</button>
                 <button onClick={e => this.handleDeleteAll(e)} type="button" class="btn btn-danger">Remove</button>
               </div>
               {this.state.Logs.map(el => (
@@ -114,13 +167,7 @@ export default class logs extends Component {
                       <strong>Title:</strong> {el.title}
                     </div>
                     <div>
-                      <strong>Detail:</strong> {el.detail}
-                    </div>
-                    <div>
-                      <strong>Origin:</strong> {el.origin}
-                    </div>
-                    <div>
-                      <strong>Environment:</strong> {el.environment}
+                      <strong> Data: </strong> { new Date(el.createdAt).toLocaleDateString() }
                     </div>
                   </div>
                 </div>
