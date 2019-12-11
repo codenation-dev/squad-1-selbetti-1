@@ -40,6 +40,12 @@ export default class logs extends Component {
         window.location.href = text + "#/logs"
     }
 
+    handleBack() {
+        let text = window.location.href.split("#")[0];
+
+        window.location.href = text + "#/logs";
+    }
+
     async componentDidMount() {
         const { match: { params } } = this.props;
         
@@ -66,24 +72,22 @@ export default class logs extends Component {
     return(
         <Main>
             <div id="logInfo">
+                <button type="button" onClick={e => this.handleBack(e)} class="mb-5 btn btn-dark">Back</button>
                 <h2 className="PageTitle">
-                    {this.state.Log.title}
+                    Erro no {this.state.Log.origin} em ({new Date(this.state.Log.createdAt).toLocaleDateString()})
                 </h2>
                 <aside className="logStatus">
                     {this.state.Log.level}
                 </aside>
                 <div className="logInfoDesc">
                     <p>
-                        <strong> Detail: </strong>{this.state.Log.detail}
+                        <strong> Title: </strong> <br /> {this.state.Log.title}
                     </p>
                     <p>
-                        <strong> Origin: </strong>{this.state.Log.origin}
+                        <strong> Detail: </strong> <br /> {this.state.Log.detail}
                     </p>
                     <p>
-                        <strong> Environment </strong>{this.state.Log.environment}
-                    </p>
-                    <p>
-                        <strong> Data: </strong>{new Date(this.state.Log.createdAt).toLocaleDateString()}
+                        <strong> Environment </strong> <br /> {this.state.Log.environment}
                     </p>
                 </div>
                 <div className="mt-2">

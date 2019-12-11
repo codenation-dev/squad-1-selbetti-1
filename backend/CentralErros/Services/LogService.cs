@@ -25,19 +25,19 @@ namespace CentralErros.Services
 
         public IEnumerable<Log> FindByLevel(string level)
         {
-            return _context.Logs.Where(el => el.Level.Equals(level))
+            return _context.Logs.Where(el => el.Level.Contains(level))
                 .ToList();
         }
 
         public IEnumerable<Log> FindByEnvironment(string environment)
         {
-            return GetAll().Where(el => el.Environment.StartsWith(environment))
+            return GetAll().Where(el => el.Environment.Contains(environment))
                 .ToList();
         }
 
         public IEnumerable<Log> FindByDescricao(string descricao)
         {
-            return GetAll().Where(el => el.Title.Equals(descricao))
+            return GetAll().Where(el => el.Title.Contains(descricao))
                 .ToList();
         }
 
