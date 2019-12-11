@@ -38,8 +38,7 @@ namespace CentralErros.Migrations
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnName("detail")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Environment")
                         .IsRequired()

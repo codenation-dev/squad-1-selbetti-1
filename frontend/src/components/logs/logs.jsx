@@ -110,18 +110,9 @@ export default class logs extends Component {
                     {el.level}
                   </aside>
                   <div className="logDesc">
-                    <div>
-                      <strong>Title:</strong> {el.title}
-                    </div>
-                    <div>
-                      <strong>Detail:</strong> {el.detail}
-                    </div>
-                    <div>
-                      <strong>Origin:</strong> {el.origin}
-                    </div>
-                    <div>
-                      <strong>Environment:</strong> {el.environment}
-                    </div>
+                    <div>{el.title}</div>
+                    <div>{el.origin}</div>
+                    <div>{el.createdAt}</div>
                   </div>
                 </div>
               ))}

@@ -65,29 +65,26 @@ export default class logs extends Component {
   render() {
     return(
         <Main>
+           
             <div id="logInfo">
+                <button onClick type="button" class="btn btn-secondary">Back</button>
+                <br></br><br></br>
                 <h2 className="PageTitle">
-                    {this.state.Log.title}
+                   Erro no {this.state.Log.origin} em {this.state.Log.createdAt}
                 </h2>
                 <aside className="logStatus">
                     {this.state.Log.level}
                 </aside>
                 <div className="logInfoDesc">
-                    <p>
-                        <strong> Detail: </strong>{this.state.Log.detail}
-                    </p>
-                    <p>
-                        <strong> Origin: </strong>{this.state.Log.origin}
-                    </p>
-                    <p>
-                        <strong> Environment </strong>{this.state.Log.environment}
-                    </p>
-                    <p>
-                        <strong> Data: </strong>{new Date(this.state.Log.createdAt).toLocaleDateString()}
-                    </p>
+                    <p><strong>Title</strong></p>
+                    <p>{this.state.Log.title}</p>
+                    <br></br>
+                    <p><strong>Detail</strong></p>
+                    <p> {this.state.Log.detail}</p>
                 </div>
+                <br></br>
                 <div className="mt-2">
-                    <button onClick={e => this.handleArchive()} type="button" class="btn btn-success">Archive</button>
+                    <button onClick={e => this.handleArchive()} type="button" class="btn btn-success" style={{marginRight: "10px"}}>Archive</button>
                     <button onClick={e => this.handleDelete()} type="button" class="btn btn-danger">Remove</button>
                 </div>
             </div>
@@ -95,3 +92,4 @@ export default class logs extends Component {
     )
   }
 }
+

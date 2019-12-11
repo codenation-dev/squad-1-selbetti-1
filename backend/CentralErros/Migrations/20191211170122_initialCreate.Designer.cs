@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CentralErros.Migrations
 {
     [DbContext(typeof(CentralErrosContext))]
-    [Migration("20191210225009_Archived")]
-    partial class Archived
+    [Migration("20191211170122_initialCreate")]
+    partial class initialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,8 +40,7 @@ namespace CentralErros.Migrations
                     b.Property<string>("Detail")
                         .IsRequired()
                         .HasColumnName("detail")
-                        .HasColumnType("nvarchar(255)")
-                        .HasMaxLength(255);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Environment")
                         .IsRequired()

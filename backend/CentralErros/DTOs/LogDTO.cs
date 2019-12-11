@@ -24,6 +24,8 @@ namespace CentralErros.DTOs
 
         public bool Archived { get; set; }
 
+        public DateTime CreatedAt { get; set; }
+
         [Required]
         public int UserId { get; set; }
     }

@@ -28,7 +28,7 @@ namespace CentralErros.Controllers
         public ActionResult<IEnumerable<LogDTO>> Get(string level = null, string environment = null, string descricao = null, string origem = null)
         {
             if (level != null)
-                return Ok(service.FindByLevel(level)
+                    return Ok(service.FindByLevel(level)
                     .Select(x => mapper.Map<LogDTO>(x))
                     .ToList());
             else if (environment != null)

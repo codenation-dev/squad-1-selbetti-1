@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backend"
+    "\\backend",
+    "\\frontend"
   ],
-  "SelectedNode": "\\backend\\CentralErros.sln",
+  "SelectedNode": "\\README.md",
   "PreviewInSolutionExplorer": false
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CentralErros.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,10 +30,11 @@ namespace CentralErros.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     level = table.Column<string>(maxLength: 10, nullable: false),
                     title = table.Column<string>(maxLength: 255, nullable: false),
-                    detail = table.Column<string>(maxLength: 255, nullable: false),
+                    detail = table.Column<string>(nullable: false),
                     origin = table.Column<string>(maxLength: 100, nullable: false),
                     created_at = table.Column<DateTime>(nullable: false),
                     environment = table.Column<string>(nullable: false),
+                    archived = table.Column<bool>(nullable: false),
                     user_id = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

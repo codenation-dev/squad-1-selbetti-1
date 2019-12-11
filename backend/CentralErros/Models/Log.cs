@@ -22,7 +22,6 @@ namespace CentralErros.Models
         public string Title { get; set; }
 
         [Column("detail")]
-        [StringLength(255)]
         [Required]
         public string Detail { get; set; }
 
