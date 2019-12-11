@@ -49,6 +49,13 @@ namespace CentralErros.Controllers
                     .ToList());
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<LogDTO> GetSingle(int id)
+        {
+            return Ok(service.Get(id));
+        }
+
+
         // POST: api/Log
         [HttpPost]
         public ActionResult<LogDTO> Post([FromBody] LogDTO value)

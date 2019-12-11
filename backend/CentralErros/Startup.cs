@@ -31,9 +31,9 @@ namespace CentralErros
                 options.AddPolicy("Origins",
                 builder =>
                 {
-                    builder.AllowAnyOrigin()
-                                .AllowAnyHeader()
-                                .AllowAnyMethod();
+                    builder.AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .AllowAnyOrigin();
                 });
             });
 
@@ -95,13 +95,14 @@ namespace CentralErros
 
             app.UseHttpsRedirection();
             app.UseRouting();
-            app.UseAuthorization();
             app.UseCors("Origins");
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
