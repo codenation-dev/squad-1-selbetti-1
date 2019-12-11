@@ -25,7 +25,7 @@ namespace CentralErros.Services
 
         public IEnumerable<Log> FindByLevel(string level)
         {
-            return _context.Logs.Where(el => el.Level.Contains(level, StringComparison.OrdinalIgnoreCase))
+            return _context.Logs.Where(el => el.Level.Contains(level))
                 .ToList();
         }
 

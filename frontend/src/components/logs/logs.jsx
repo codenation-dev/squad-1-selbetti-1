@@ -165,7 +165,7 @@ export default class logs extends Component {
                   <div className="logDesc">
                     <div>{el.title}</div>
                     <div>{el.origin}</div>
-                    <div>{el.createdAt}</div>
+                    <div>{new Date(el.createdAt).toLocaleDateString()} {new Date(el.createdAt).toLocaleTimeString()}</div>
                   </div>
                 </div>
               ))}

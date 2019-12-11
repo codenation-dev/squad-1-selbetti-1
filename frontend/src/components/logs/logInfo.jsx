@@ -73,10 +73,10 @@ export default class logs extends Component {
         <Main>
            
             <div id="logInfo">
-                <button onClick type="button" class="btn btn-secondary">Back</button>
+                <button onClick={e => this.handleBack()} type="button" class="btn btn-secondary">Back</button>
                 <br></br><br></br>
                 <h2 className="PageTitle">
-                   Erro no {this.state.Log.origin} em {this.state.Log.createdAt}
+                   Erro no {this.state.Log.origin} em {new Date(this.state.Log.createdAt).toLocaleDateString()} {new Date(this.state.Log.createdAt).toLocaleTimeString()}
                 </h2>
                 <aside className="logStatus">
                     {this.state.Log.level}
