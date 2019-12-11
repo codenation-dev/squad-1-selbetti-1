@@ -40,6 +40,12 @@ export default class logs extends Component {
         window.location.href = text + "#/logs"
     }
 
+    handleBack() {
+        let text = window.location.href.split("#")[0];
+
+        window.location.href = text + "#/logs";
+    }
+
     async componentDidMount() {
         const { match: { params } } = this.props;
         

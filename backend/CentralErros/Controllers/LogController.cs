@@ -25,7 +25,7 @@ namespace CentralErros.Controllers
 
         // GET: api/Log
         [HttpGet]
-        public ActionResult<IEnumerable<LogDTO>> Get(string level = null, string environment = null, string descricao = null, string origem = null)
+        public ActionResult<IEnumerable<LogDTO>> Get(string level = null, string environment = null, string description = null, string origin = null)
         {
             if (level != null)
                     return Ok(service.FindByLevel(level)
@@ -35,12 +35,12 @@ namespace CentralErros.Controllers
                 return Ok(service.FindByEnvironment(environment)
                     .Select(x => mapper.Map<LogDTO>(x))
                     .ToList());
-            else if (descricao != null)
-                return Ok(service.FindByDescricao(descricao)
+            else if (description != null)
+                return Ok(service.FindByDescricao(description)
                     .Select(x => mapper.Map<LogDTO>(x))
                     .ToList());
-            else if (origem != null)
-                return Ok(service.FindByOrigem(origem)
+            else if (origin != null)
+                return Ok(service.FindByOrigem(origin)
                     .Select(x => mapper.Map<LogDTO>(x))
                     .ToList());
             else
@@ -63,7 +63,9 @@ namespace CentralErros.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(mapper.Map<LogDTO>(service.Save(mapper.Map<Log>(value))));
+            Log log = mapper.Map<Log>(value);
+
+            return Ok(mapper.Map<LogDTO>(service.Save(log)));
         }
 
         // PUT: api/Log/5
