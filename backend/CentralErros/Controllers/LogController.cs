@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace CentralErros.Controllers
 {
@@ -64,6 +65,15 @@ namespace CentralErros.Controllers
                 return BadRequest(ModelState);
 
             Log log = mapper.Map<Log>(value);
+
+            var claimsIdentity = this.User.Identity as ClaimsIdentity;
+            var userEmail = claimsIdentity.FindFirst(ClaimTypes.Name)?.Value;
+
+            User user = new User();
+
+            user.Email = userEmail;
+
+            log.User = user;
 
             return Ok(mapper.Map<LogDTO>(service.Save(log)));
         }

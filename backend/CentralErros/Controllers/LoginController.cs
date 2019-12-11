@@ -38,7 +38,8 @@ namespace CentralErros.Controllers
                     new GenericIdentity(usuario.Email, "Login"),
                     new[] {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString("N")),
-                        new Claim(JwtRegisteredClaimNames.UniqueName, usuario.Email)
+                        new Claim(JwtRegisteredClaimNames.UniqueName, usuario.Email),
+                        new Claim(ClaimTypes.Name, usuario.Id.ToString())
                     }
                 );
 

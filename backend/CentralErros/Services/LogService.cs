@@ -69,7 +69,8 @@ namespace CentralErros.Services
         {
             log.CreatedAt = DateTime.Now;
             var state = log.Id == 0 ? EntityState.Added : EntityState.Modified;
-            log.User = _context.Users.Where(el => el.Id == log.UserId).FirstOrDefault();
+            log.User = _context.Users.Where(el => el.Email == log.User.Email).FirstOrDefault();
+
             _context.Entry(log).State = state;
             _context.SaveChanges();
             return log;

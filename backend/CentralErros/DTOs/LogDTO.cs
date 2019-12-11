@@ -26,7 +26,5 @@ namespace CentralErros.DTOs
 
         public DateTime CreatedAt { get; set; }
 
-        [Required]
-        public int UserId { get; set; }
     }
 }
